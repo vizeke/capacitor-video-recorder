@@ -8,7 +8,13 @@
     "build": "npm run clean && tsc",
     "clean": "rm -rf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "removePacked": "rm -f teamhive-capacitor-video-recorder-*.tgz",
+    "publishLocally": "npm run removePacked && npm run build && npm pack",
+    "release": "standard-version -a",
+    "release:alpha": "standard-version -a --prerelease alpha",
+    "release:prerelease": "standard-version -a --prerelease",
+    "release:preview": "standard-version --dry-run"
   },
   "author": "Sean Bannigan",
   "license": "MIT",
@@ -16,10 +22,11 @@
     "@capacitor/core": "latest"
   },
   "devDependencies": {
-    "typescript": "^2.6.2",
+    "@capacitor/android": "^2.3.0",
     "@capacitor/core": "^2.3.0",
     "@capacitor/ios": "^2.3.0",
-    "@capacitor/android": "^2.3.0"
+    "standard-version": "^9.3.0",
+    "typescript": "^2.6.2"
   },
   "files": [
     "dist/",
@@ -42,9 +49,9 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/vizeke/capacitor-video-recorder.git"
   },
   "bugs": {
-    "url": "/issues"
+    "url": "https://github.com/vizeke/capacitor-video-recorder/issues"
   }
 }
